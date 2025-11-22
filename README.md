@@ -3,7 +3,6 @@ DiscordBotLib is an Advanced AND Basic Library for Discord Bot's, since I notice
 
 # Documentation
 
---
 
 **DiscordBotLib.Core.Models.Activity - Activity Module**
 
