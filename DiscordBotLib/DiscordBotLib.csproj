@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Costura.Fody.6.0.0\build\Costura.Fody.props" Condition="Exists('..\packages\Costura.Fody.6.0.0\build\Costura.Fody.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1FA9A31D-6FD8-46E5-AA78-50A3982832CD}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DiscordBotLib</RootNamespace>
+    <AssemblyName>DiscordBotLib</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DiscordBotLib.Core\Models\Activity.cs" />
+    <Compile Include="DiscordBotLib.Core\Models\Attachment.cs" />
+    <Compile Include="DiscordBotLib.Core\Models\Channel.cs" />
+    <Compile Include="DiscordBotLib.Core\Models\Embed.cs" />
+    <Compile Include="DiscordBotLib.Core\Models\Emoji.cs" />
+    <Compile Include="DiscordBotLib.Core\Models\Guild.cs" />
+    <Compile Include="DiscordBotLib.Core\Models\Message.cs" />
+    <Compile Include="DiscordBotLib.Core\Models\Permission.cs" />
+    <Compile Include="DiscordBotLib.Core\Models\Role.cs" />
+    <Compile Include="DiscordBotLib.Core\Models\User.cs" />
+    <Compile Include="DiscordBotLib.Core\Networking\CompressionHandler.cs" />
+    <Compile Include="DiscordBotLib.Core\Networking\HttpApiClient.cs" />
+    <Compile Include="DiscordBotLib.Core\Networking\JsonSerializer.cs" />
+    <Compile Include="DiscordBotLib.Core\Networking\RateLimitHandler.cs" />
+    <Compile Include="DiscordBotLib.Core\Networking\WebSocketClient.cs" />
+    <Compile Include="DiscordBotLib.Core\Utilities\ColorHelper.cs" />
+    <Compile Include="DiscordBotLib.Core\Utilities\DateTimeHelper.cs" />
+    <Compile Include="DiscordBotLib.Core\Utilities\LogManager.cs" />
+    <Compile Include="DiscordBotLib.Core\Utilities\PermissionCalculator.cs" />
+    <Compile Include="DiscordBotLib.Core\Utilities\SnowflakeGenerator.cs" />
+    <Compile Include="DiscordBotLib.Core\Utilities\StringExtensions.cs" />
+    <Compile Include="DiscordBotLib.Gateway\Events\EventDispatcher.cs" />
+    <Compile Include="DiscordBotLib.Gateway\Events\GatewayEvents.cs" />
+    <Compile Include="DiscordBotLib.Gateway\Events\GuildEvents.cs" />
+    <Compile Include="DiscordBotLib.Gateway\Events\MessageEvents.cs" />
+    <Compile Include="DiscordBotLib.Gateway\Events\UserEvents.cs" />
+    <Compile Include="DiscordBotLib.Gateway\Events\VoiceEvents.cs" />
+    <Compile Include="DiscordBotLib.Gateway\WebSocket\GatewayConnection.cs" />
+    <Compile Include="DiscordBotLib.Gateway\WebSocket\GatewayOpCodes.cs" />
+    <Compile Include="DiscordBotLib.Gateway\WebSocket\HeartbeatService.cs" />
+    <Compile Include="DiscordBotLib.Gateway\WebSocket\SessionManager.cs" />
+    <Compile Include="DiscordBotLib.Gateway\WebSocket\ZlibCompression.cs" />
+    <Compile Include="DiscordBotLib.Rest\API\ChannelEndpoints.cs" />
+    <Compile Include="DiscordBotLib.Rest\API\GuildEndpoints.cs" />
+    <Compile Include="DiscordBotLib.Rest\API\MessageEndpoints.cs" />
+    <Compile Include="DiscordBotLib.Rest\API\RestClient.cs" />
+    <Compile Include="DiscordBotLib.Rest\API\UserEndpoints.cs" />
+    <Compile Include="DiscordBotLib.Rest\API\VoiceEndpoints.cs" />
+    <Compile Include="DiscordBotLib.Rest\API\WebhookEndpoints.cs" />
+    <Compile Include="DiscordBotLib.Rest\RateLimiting\BucketRegistry.cs" />
+    <Compile Include="DiscordBotLib.Rest\RateLimiting\GlobalRateLimit.cs" />
+    <Compile Include="DiscordBotLib.Rest\RateLimiting\RateLimitBucket.cs" />
+    <Compile Include="DiscordBotLib.Rest\RateLimiting\RateLimitHeaders.cs" />
+    <Compile Include="DiscordBotLib.Rest\RateLimiting\RateLimitManager.cs" />
+    <Compile Include="DiscordBotLib.Voice\Audio\AudioPlayer.cs" />
+    <Compile Include="DiscordBotLib.Voice\Audio\AudioReceiver.cs" />
+    <Compile Include="DiscordBotLib.Voice\Audio\AudioStream.cs" />
+    <Compile Include="DiscordBotLib.Voice\Audio\VoiceConnection.cs" />
+    <Compile Include="DiscordBotLib.Voice\Audio\VoiceEncryption.cs" />
+    <Compile Include="DiscordBotLib.Voice\Audio\VoiceGateway.cs" />
+    <Compile Include="DiscordBotLib.Voice\Codecs\AudioFormat.cs" />
+    <Compile Include="DiscordBotLib.Voice\Codecs\OpusCodec.cs" />
+    <Compile Include="DiscordBotLib.Voice\Codecs\OpusDecoder.cs" />
+    <Compile Include="DiscordBotLib.Voice\Codecs\OpusEncoder.cs" />
+    <Compile Include="DiscordBotLib.Voice\Codecs\RTPPacket.cs" />
+    <Compile Include="DiscordBotLib.Voice\Codecs\SodiumEncryption.cs" />
+    <Compile Include="Examples\BasicBotExample.cs" />
+    <Compile Include="Examples\ModerationBotExample.cs" />
+    <Compile Include="Examples\MusicBotExample.cs" />
+    <Compile Include="Examples\SlashCommandExample.cs" />
+    <Compile Include="Examples\VoiceBotExample.cs" />
+    <Compile Include="Examples\WebhookExample.cs" />
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="Costura, Version=6.0.0.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Costura.Fody.6.0.0\lib\netstandard2.0\Costura.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=10.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.10.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=10.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.10.0.0\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=10.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.10.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.10.0.0\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.6.3\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Vse.Web.Serialization, Version=1.0.4.0, Culture=neutral, PublicKeyToken=fb838febb49f46b2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vse.Web.Serialization.ControlledSerializationJsonConverter.1.0.4\lib\net45\Vse.Web.Serialization.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets" Condition="Exists('..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets'))" />
+    <Error Condition="!Exists('..\packages\Fody.6.9.3\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.6.9.3\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Costura.Fody.6.0.0\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.6.0.0\build\Costura.Fody.props'))" />
+    <Error Condition="!Exists('..\packages\Costura.Fody.6.0.0\build\Costura.Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.6.0.0\build\Costura.Fody.targets'))" />
+  </Target>
+  <Import Project="..\packages\Fody.6.9.3\build\Fody.targets" Condition="Exists('..\packages\Fody.6.9.3\build\Fody.targets')" />
+  <Import Project="..\packages\Costura.Fody.6.0.0\build\Costura.Fody.targets" Condition="Exists('..\packages\Costura.Fody.6.0.0\build\Costura.Fody.targets')" />
+</Project>
